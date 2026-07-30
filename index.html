@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ทะเบียนสวย</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Sarabun','TH Sarabun New',Arial,sans-serif; background:#d0ead0; padding:24px; }
+  h1 { text-align:center; color:#1b5e20; margin-bottom:24px; font-size:22px; font-weight:700; }
+  .grid { display:grid; grid-template-columns:repeat(4,minmax(0,260px)); gap:12px; justify-content:center; }
+  @media (max-width:700px) {
+    body { padding:6px; }
+    h1 { font-size:16px; margin-bottom:12px; }
+    .grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:6px; }
+  }
+  .card { display:flex; flex-direction:column; align-items:stretch; gap:0; width:100%; }
+  .plate { width:100%; height:0; padding-bottom:38%; position:relative; border-radius:8px; border:3px solid #2d6a4f; overflow:hidden; box-shadow:0 3px 10px rgba(0,0,0,0.35); display:block; container-type:inline-size; }
+  .plate-bg { position:absolute; inset:0; background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAAAvCAMAAAAGltJMAAAC61BMVEWd0rvJ6NrM6N/M5dTY7eDn8unu9+v4+vHB4M272Mrz9dPW6cm63cPE36jn65ucz56Iy6N9x6jY5p708aCw157b5ZDA3Jiy1oKa0Z3C4Mrf8ejJ59zJ5dfS6d3Z69jV6t7O5+LL6+rR6eXc7uXk8eXi7+LW6+Xk8uju9ejo8+bZ7enx+O3Z7eH2+vD5++qy1MTD49T8/vLo8+re7uK62MnH3tHs9ezj8N3Z693d7d7w9d76+d/p8c7D4MDw9M/4+NC63Lq83r/D4cWp1baJyZ+UzqDN4p6Dyqqf0aR5yq212ZfF3oar1Zaf0rDH5M7M5c3C4czD4trQ6NTO6NzG5d/L5eDm8eHp8uLr9OWlzbu21sa+2cuqz77y9ubU6NrC3M6v0cH2+eff7dCz2rzn78Te7Md1v5GXzquy2Kye0JiBxJGOy6aDxZt+xaB5xqbG4tz09+HW6c7y9dV8wpdFq3OVzJep1KDL4rDD4c/H48nK4tOTxrHP5NfM5cSq1akromTQ5bqMyZTJ492ZyLX59dhMrnjQ58+fy7jU6Mfk79P08bw8qG6938dTsXzm7rwinl5uvI/d6rp/zLTq8ti6260YmlgOllL19tza6LJbtYP08qtcs33b7eHj8e719Mc0pWnJ4rmMwqzm7a/c7+2x2Lb09/Tr8b7B37n///7u8sma0bj2+/nC37G128Nouoxjt4Xu+Pfr9PHw9fPA39mp177r9vW63czo8/CQzrO63NW129K93tev2c6bzsCr2MyX08ed186h0sWZ1c2T0L57yLm44N+m186y3dim3NaJxreh29aRybuCwrGo1ch4vam/4uGJzsVrv52DwKh5u6PS5azA4typ29it39yU09F3y8Nqx7lfv7Buw6Zmv6FHvrBTwLhDva+Gzrdevp1XuptEuZljwaxyxrJVuo86vK0vuagitqOEzL48vr8XtKiN0dOQ0ciw4eLA5+iz39y04OHD5Oqh19iY0s+z3ukAAACrBtuYAAAA+XRSTlP//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////wD5s3lGAAAQeklEQVR4nF2ZsWvj2NrGg5ugJsUMk7lt2nXl4hRHgR0VIiYbF9MOCI9RIQ3BTZCFC4OcyL76YIwwBmOYmBuLCILFBSUCc2ALhSmuihQedn1nGe79qi0u+w8M4Zbf8x45O/vtkS1LSmL9/LzP+573ODv/rcgRVLaDx5zHeKnwLKtyOqtWaZ9Vq/IY17KaEDitVctdVlvyb2fbSzX5e/JPVFMT4hXtte7enqvXj929yz23rh/XGy9eHLnHNNyXJ3/57w77m2RgFc555QCjImkODkCA96rEBzEAcFEyxdVajIvamuGoyuUuq/F7httnHAjVmHZ0GRg1bnL1MNEi9v0rTROr/b3n+3Xd3b/cO9Lr9bp39HyvcVyvA2X/5KRh/2XndSBev34tKkUQkDq/YCMuXilwpnJJqnJ65WDiFVXlIleEIbgqb1jlakVoBiPhVACpag2aHPIg4LQzv0+0lXbzamLZdG/X0VeNvb2Gfuzo+3t7+/qx/qlE0SHPTqCdi9e/BAUrfD/gf8CRocOtAzoDFZd7IDHDaCktQ2Q1lccZGITCDKFmKshUTlcz+jNoYlaC71VN08xXpuaMzhGji9NG19oHkg4khMxxHHf/xYsGkBzAiMprLQhEUCl8BjFM3K8gVXBv7H2+VUVycNKCAcXoiRaJQb5ghsKUt0KwLCaPZIcZqFUpYeU8Uc81MQGLp/etc/3U2n++pwPF2X9+ue84x469v/div0Sx3Z3gl9e/iCBgLKB7F35FauL75f2fYrTVJlZjlmu+YRg91jLIUyoTLcb8t29ZC+JAmRqeCCCCpFYi8zCALofJVH952unYrn6EEF0AZd+ydKcOVWSoAHWsn5y8JGUq8AwcE0AZv+L7MkQUIwJgW1WQXCodZrAHYz2j1RRGi27eFC2FcYUheLF0cxYggQICioKhGWnmVaLpjffuorMQe8+P3FPH3Xu+dxF2RhdIrn2bSOqNk5MTt74TAAXi/BJUpIMp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'); background-size:cover; background-position:center top; }
+  .plate-inner { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; }
+  .plate-main { position:relative; z-index:2; font-size:13cqw; font-weight:900; color:#0d3318; letter-spacing:0.05em; line-height:1; font-family:'Sarabun','TH Sarabun New',Arial,sans-serif; white-space:nowrap; text-shadow:1px 1px 0 rgba(255,255,255,0.5); text-align:center; }
+  .plate-province { position:absolute; bottom:4px; left:0; right:0; text-align:center; z-index:2; font-size:10px; font-weight:700; color:#0d3318; letter-spacing:1px; text-shadow:0 1px 2px rgba(255,255,255,0.6); }
+  .plate-footer { width:100%; background:#1b5e20; border:3px solid #2d6a4f; border-top:none; border-radius:0 0 8px 8px; display:flex; align-items:center; justify-content:center; padding:4px 6px; }
+  .price-text { color:#ff3333; font-size:16px; font-weight:900; letter-spacing:0.5px; }
+  .card { cursor:pointer; }
+  .card:hover .plate { box-shadow:0 0 0 3px #ffcc00, 0 3px 14px rgba(0,0,0,0.4); }
+  /* Modal */
+  #modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.55); z-index:999; align-items:center; justify-content:center; }
+  #modal.show { display:flex; }
+  #modal-box { background:#fff; border-radius:16px; padding:24px 24px 20px; text-align:center; box-shadow:0 8px 32px rgba(0,0,0,0.3); max-width:320px; width:92%; }
+  #modal-price { font-size:22px; font-weight:900; color:#d32f2f; margin:6px 0 14px; }
+  #modal-box .tel { font-size:20px; font-weight:900; color:#d32f2f; margin-bottom:4px; }
+  #modal-box .name { font-size:16px; color:#444; margin-bottom:20px; }
+  .tel { display:block; font-size:26px; font-weight:900; color:#d32f2f; margin-bottom:4px; text-decoration:none; }
+  .tel:hover { text-decoration:underline; }
+</style>
+</head>
+<body>
+<h1>🚗 ป้ายทะเบียนกระบะสวย</h1>
+<div class="grid" id="plates"></div>
+
+<!-- Modal -->
+<div id="modal">
+  <div id="modal-box">
+    <div id="modal-plate-wrap">
+      <div class="plate" style="margin:0 auto 8px;max-width:280px;">
+        <div class="plate-bg"></div>
+        <div class="plate-inner"><div class="plate-main" id="modal-plate-text"></div></div>
+        <div class="plate-province">กรุงเทพมหานคร</div>
+      </div>
+      <div id="modal-price"></div>
+    </div>
+    <a class="tel" href="tel:0618926416">061-892-6416 K.สิตา</a>
+    <div style="display:flex;gap:10px;justify-content:center;margin-top:12px;flex-wrap:wrap;">
+      <a href="tel:0618926416" style="background:#1b5e20;color:#fff;border-radius:10px;padding:10px 24px;font-size:16px;font-weight:700;text-decoration:none;">📞 โทรเลย</a>
+      <button id="modal-close" onclick="document.getElementById('modal').classList.remove('show')" style="background:#888;color:#fff;border:none;border-radius:10px;padding:10px 24px;font-size:16px;font-weight:700;cursor:pointer;">ปิด</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const data=[
+  {s:"1ฒฒ",n:"2",p:74900},{s:"1ฒฒ",n:"1122",p:20900},{s:"1ฒฒ",n:"1221",p:17900},
+  {s:"1ฒฒ",n:"1441",p:15900},{s:"1ฒฒ",n:"2112",p:17900},{s:"1ฒฒ",n:"2992",p:15900},
+  {s:"1ฒฒ",n:"3939",p:17900},{s:"1ฒฒ",n:"6116",p:15900},{s:"1ฒฒ",n:"6446",p:14500},
+  {s:"1ฒฒ",n:"6556",p:21500},{s:"1ฒฒ",n:"7557",p:15900},{s:"1ฒฒ",n:"9090",p:23900},
+  {s:"1ฒฒ",n:"9191",p:32500},{s:"1ฒฒ",n:"9393",p:17500},
+  {s:"2ฒศ",n:"2112",p:5900},{s:"2ฒศ",n:"2211",p:5900},{s:"2ฒศ",n:"3443",p:4900},
+  {s:"2ฒศ",n:"3636",p:5900},{s:"2ฒศ",n:"3366",p:4900},{s:"2ฒศ",n:"4774",p:4900},
+  {s:"2ฒศ",n:"9494",p:4900},{s:"2ฒษ",n:"4000",p:5900},{s:"2ฒษ",n:"6446",p:5900},
+  {s:"2ฒษ",n:"4884",p:4900},{s:"2ฒษ",n:"8448",p:5900},{s:"2ฒษ",n:"5577",p:5900},
+  {s:"2ฒษ",n:"6677",p:4900},{s:"2ฒษ",n:"7878",p:9900},{s:"2ฒษ",n:"8877",p:7900},
+  {s:"2ฒส",n:"9009",p:6900},{s:"2ฒส",n:"6116",p:5900},{s:"2ฒส",n:"2266",p:5900},
+  {s:"2ฒส",n:"7722",p:5900},{s:"2ฒส",n:"3443",p:4900},{s:"2ฒส",n:"4334",p:4900},
+  {s:"2ฒส",n:"3553",p:5900},{s:"2ฒส",n:"3366",p:4900},{s:"3ฒภ",n:"5050",p:5900},
+  {s:"3ฒภ",n:"2211",p:4900},{s:"3ฒภ",n:"3113",p:6900},{s:"3ฒภ",n:"7711",p:5900},
+  {s:"3ฒภ",n:"2233",p:5900},{s:"3ฒภ",n:"2277",p:5900},{s:"3ฒภ",n:"7722",p:5900},
+  {s:"3ฒภ",n:"6633",p:6900},{s:"3ฒภ",n:"3737",p:3900},{s:"3ฒภ",n:"3773",p:3900},
+  {s:"3ฒภ",n:"4664",p:6900},{s:"3ฒภ",n:"4466",p:6900},{s:"3ฒภ",n:"6446",p:6900},
+  {s:"3ฒภ",n:"4774",p:5900},{s:"3ฒภ",n:"7447",p:5900},{s:"3ฒภ",n:"8866",p:5900},
+  {s:"3ฒภ",n:"7887",p:8900},{s:"3ฒภ",n:"7788",p:9900},{s:"3ฒภ",n:"7997",p:14900},
+  {s:"3ฒภ",n:"9779",p:14900}
+];
+const c=document.getElementById('plates');
+data.forEach(({s,n,p})=>{
+  c.innerHTML+=`<div class="card" onclick="showContact('${s} ${n}',${p})"><div class="plate"><div class="plate-bg"></div><div class="plate-inner"><div class="plate-main">${s} ${n}</div></div><div class="plate-province">กรุงเทพมหานคร</div></div><div class="plate-footer"><span class="price-text">฿${p.toLocaleString()}</span></div></div>`;
+});
+// font size handled by CSS container queries (13cqw on .plate)
+
+function showContact(plate, price){
+  document.getElementById('modal-plate-text').textContent = plate;
+  document.getElementById('modal-price').textContent = '฿' + price.toLocaleString();
+  document.getElementById('modal').classList.add('show');
+}
+document.getElementById('modal').addEventListener('click',function(e){
+  if(e.target===this) this.classList.remove('show');
+});
+</script>
+</body>
+</html>
