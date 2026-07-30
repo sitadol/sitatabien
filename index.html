@@ -46,6 +46,11 @@
   .dot { width:8px; height:8px; border-radius:50%; background:#aaa; cursor:pointer; transition:background 0.2s; }
   .dot.active { background:#1b5e20; }
   #rev-desc { margin:14px auto 0; max-width:560px; font-size:13px; color:#2d4a2d; line-height:1.7; padding:0 8px; }
+  #info-section { max-width:640px; margin:32px auto 8px; display:flex; flex-direction:column; gap:16px; padding:0 8px; }
+  .info-box { background:#fff; border-radius:12px; padding:18px 20px; box-shadow:0 2px 8px rgba(0,0,0,0.1); }
+  .info-box h3 { color:#1b5e20; font-size:15px; margin-bottom:10px; }
+  .info-box ol { padding-left:18px; }
+  .info-box li { font-size:13px; color:#333; line-height:1.8; margin-bottom:4px; }
 </style>
 </head>
 <body>
@@ -134,5 +139,25 @@ updateSlider();
 setInterval(()=>moveSlide(1), 3500);
 
 </script>
+
+<div id="info-section">
+  <div class="info-box">
+    <h3>📋 ขั้นตอนการสั่งซื้อป้ายทะเบียนรถ</h3>
+    <ol>
+      <li>โอนมัดจำ แล้วนัดโอนชำระส่วนที่เหลือครบ เราจะจัดส่งทาง EMS ให้ค่ะ</li>
+      <li>โอนมัดจำ แล้วนัดเจอกันที่ขนส่งจตุจักร ชำระส่วนที่เหลือครบ แล้วรับเอกสารค่ะ</li>
+      <li>ระยะเวลาการจองเลข พร้อมชำระยอดส่วนที่เหลือภายใน 10 วันค่ะ</li>
+      <li>นัดรับโซนเอกสารพร้อมชำระเงิน พระราม3 สาทร คลองเตย และกรมการขนส่งจตุจักร ได้ค่ะ</li>
+    </ol>
+  </div>
+  <div class="info-box">
+    <h3>🎁 สิ่งที่จะได้จากการซื้อเลขประมูล</h3>
+    <ol>
+      <li>เอกสารใบเสร็จประมูลเลข</li>
+      <li>ชุดโอนสิทธิ์</li>
+      <li>แผ่นป้ายทะเบียน จะได้ก็ต่อเมื่อนำเอกสารไปยื่นจดทะเบียนให้เรียบร้อย แล้วทางขนส่งจะออกแผ่นป้ายทะเบียนให้อีกทีค่ะ</li>
+    </ol>
+  </div>
+</div>
 </body>
 </html>
